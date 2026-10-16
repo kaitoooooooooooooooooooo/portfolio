@@ -25,6 +25,10 @@ try {
   # site\recto est une jonction vers le dépôt de Recto (aperçu en local) : on la saute ici.
   Add-Tree $site '' { param($rel) $rel -like 'recto/*' }
   # Recto : la base et la clé secrète restent sur la machine (seul le .htaccess du dossier part).
-  Add-Tree $recto 'recto/' { param($rel) ($rel -like 'recto/api/data/*' -and $rel -ne 'recto/api/data/.htaccess') -or $rel -match '\.(sqlite|sqlite-wal|sqlite-shm|key)$' }
+  # Avec Firebase (clé remplie dans js/config.js), l'API PHP ne sert pas : on ne la dépose pas
+  # (sur un hébergement sans PHP, son code s'afficherait en texte).
+  $firebase = (Get-Content (Join-Path $recto 'js\config.js') -Raw) -match "apiKey:\s*'[^']+'"
+  Add-Tree $recto 'recto/' { param($rel) ($firebase -and $rel -like 'recto/api/*') -or ($rel -like 'recto/api/data/*' -and $rel -ne 'recto/api/data/.htaccess') -or $rel -match '\.(sqlite|sqlite-wal|sqlite-shm|key)$' }
+  "Comptes de Recto : $(if ($firebase) { 'Firebase (API PHP laissée de côté)' } else { 'API PHP' })"
 } finally { $archive.Dispose() }
 "OK : $zip ($([math]::Round((Get-Item $zip).Length / 1KB)) Ko)"
