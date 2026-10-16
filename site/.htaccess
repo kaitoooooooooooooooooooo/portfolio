@@ -7,6 +7,35 @@ AddType font/woff2 .woff2
 AddType image/svg+xml .svg
 AddType image/webp .webp
 
+# --- Une seule adresse : https://kaito-lab.ch -------------------------------------------
+# Chez Infomaniak, le chiffrement est fait par un serveur placé devant celui-ci : Apache voit
+# souvent la requête comme « http » et c'est l'en-tête X-Forwarded-Proto qui dit « https ».
+# On ne redirige que si AUCUN des deux signaux ne dit https : pas de boucle possible.
+# Les fichiers de validation du certificat (Let's Encrypt) restent accessibles en http.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://kaito-lab.ch%{REQUEST_URI} [R=301,L]
+  # www.kaito-lab.ch → kaito-lab.ch (les listes de Recto sans compte sont rangées par adresse)
+  RewriteCond %{HTTP_HOST} ^www\.kaito-lab\.ch$ [NC]
+  RewriteRule ^ https://kaito-lab.ch%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# L'application de révision s'appelait « Fiches » : l'ancienne adresse mène à la nouvelle
+# (le #/… de l'adresse est gardé par le navigateur, et les listes du navigateur aussi).
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/fiches(/.*)?$ https://kaito-lab.ch/recto$1
+</IfModule>
+
+# --- Fichiers qui n'ont rien à faire en ligne (sécurité par défaut, au cas où) -----------
+<FilesMatch "(^\.|\.(md|json|ps1|py|mjs|sh|sqlite|sqlite-wal|sqlite-shm|key|log|bak|zip|ini)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml
 </IfModule>
@@ -22,19 +51,20 @@ AddType image/webp .webp
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
+# --- En-têtes de sécurité (aussi sur les pages d'erreur : « always ») --------------------
 <IfModule mod_headers.c>
-  Header set X-Content-Type-Options "nosniff"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  # Recto a besoin que Firebase voie l'adresse du site (clé limitée à kaito-lab.ch) : on envoie
+  # l'origine, jamais le chemin complet.
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Personne ne peut afficher le site dans un cadre (protection contre le « clickjacking »).
+  Header always set X-Frame-Options "DENY"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  # Le site n'utilise ni caméra, ni micro, ni position, ni paiement… et le dit au navigateur.
+  Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()"
+  # Seul le site lui-même peut fournir scripts, styles, polices et images ; les seules connexions
+  # vers l'extérieur sont celles des comptes de Recto (Firebase). Même règle dans recto/.htaccess.
+  <FilesMatch "\.html$">
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  </FilesMatch>
 </IfModule>
-
-# L'application de révision s'appelait « Fiches » : l'ancienne adresse mène à la nouvelle
-# (le #/… de l'adresse est gardé par le navigateur, et les listes du navigateur aussi).
-<IfModule mod_alias.c>
-  RedirectMatch 301 ^/fiches(/.*)?$ /recto$1
-</IfModule>
-
-# À décommenter une fois le certificat Let's Encrypt actif (Manager Infomaniak → Certificats SSL) :
-# RewriteEngine On
-# RewriteCond %{HTTPS} off
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
