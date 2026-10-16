@@ -1,0 +1,13 @@
+# Jonction vers le dépôt de Recto (aperçu en local) : l'application a son propre dépôt
+site/recto
+
+# Zip à déposer sur l'hébergement, refait par tools/package.ps1
+dist/
+
+# Captures brutes et profils de Chrome utilisés pour les aperçus (lourds, et un profil
+# de navigateur n'a rien à faire dans un dépôt)
+previews-src/
+
+node_modules/
+.DS_Store
+Thumbs.db

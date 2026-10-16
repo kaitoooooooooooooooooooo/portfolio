@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tom Mehl — Développeur</title>
+  <meta name="description" content="Tom Mehl, développeur : applications web, mobiles et de bureau. Projets, outils et contact.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Tom Mehl — Développeur">
+  <meta property="og:description" content="Applications web, mobiles et de bureau.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#projets">Aller aux projets</a>
+
+<header class="top wrap">
+  <a class="mark" href="#">Tom Mehl</a>
+  <nav aria-label="Sections">
+    <a href="/recto/">Recto</a>
+    <a href="#projets">Projets</a>
+    <a href="#a-propos">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap" aria-labelledby="titre">
+    <h1 id="titre">Tom<br>Mehl</h1>
+    <div class="hero-foot">
+      <p class="label">Développeur</p>
+      <p class="lede">Je conçois et je code des applications web, mobiles et de bureau, de l’API à l’interface.</p>
+      <p class="label right"><span id="count-hero">10</span> projets · 2026</p>
+    </div>
+  </section>
+
+  <section class="projects wrap" id="projets" aria-labelledby="titre-projets">
+    <div class="section-head">
+      <h2 class="label" id="titre-projets">Projets <span class="count" id="count">(10)</span></h2>
+      <div class="filters" role="group" aria-label="Filtrer les projets">
+        <button type="button" data-filter="tous" aria-pressed="true">Tous</button>
+        <button type="button" data-filter="web" aria-pressed="false">Web</button>
+        <button type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+        <button type="button" data-filter="bureau" aria-pressed="false">Bureau</button>
+      </div>
+    </div>
+
+    <ol class="index">
+      <li data-cat="web" id="recto">
+        <details>
+          <summary>
+            <span class="n">01</span><span class="name">Recto</span>
+            <span class="meta"><span class="kind">Web</span><span class="stack">JavaScript · PHP · SQLite</span><span class="date">10.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/recto.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Trois écrans de Recto : la liste des listes, une carte retournée et une question du mode Apprendre."></figure>
+            <p class="desc">Application de révision inspirée de Quizlet, réduite à l’essentiel&nbsp;: on importe une liste, on la révise en mode Cartes ou Apprendre.</p>
+            <ul class="points">
+              <li>Import par copier-coller&nbsp;: séparateurs devinés (tabulation, «&nbsp;-&nbsp;», «&nbsp;:&nbsp;»…), aperçu en direct.</li>
+              <li>Mode Apprendre par paliers d’environ 7 cartes&nbsp;: choix multiple, puis réponse écrite qui pardonne les fautes de frappe.</li>
+              <li>Anneaux de progression animés et mini-succès pour donner envie de continuer.</li>
+              <li>Sans compte dans le navigateur, ou avec un compte pour retrouver ses listes partout.</li>
+            </ul>
+            <p class="links"><a href="/recto/">Ouvrir</a><a href="https://github.com/kaitoooooooooooooooooooo/recto" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="bureau" id="multi-web-manager">
+        <details>
+          <summary>
+            <span class="n">02</span><span class="name">Multi Web Manager</span>
+            <span class="meta"><span class="kind">Bureau</span><span class="stack">Electron · TypeScript</span><span class="date">10.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><svg class="schema" viewBox="0 0 1600 1000" role="img" aria-labelledby="mwm-schema">
+              <title id="mwm-schema">Schéma : à gauche le mur de 20 pages web en grille, le même curseur reproduit dans chaque cellule ; à droite la console d’administration.</title>
+              <text x="90" y="180" class="mono">ÉCRAN 1 — LE MUR</text>
+              <rect x="80" y="200" width="896" height="568" class="ln thick"/>
+              <rect x="90" y="210" width="166" height="128" class="ln"/><text x="100" y="232" class="mono sm">01</text><path d="M104 252h138M104 268h106M104 284h122" class="ln faint"/><path d="M194 294l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="266" y="210" width="166" height="128" class="ln"/><text x="276" y="232" class="mono sm">02</text><path d="M280 252h138M280 268h106M280 284h122" class="ln faint"/><path d="M370 294l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="442" y="210" width="166" height="128" class="ln"/><text x="452" y="232" class="mono sm">03</text><path d="M456 252h138M456 268h106M456 284h122" class="ln faint"/><path d="M546 294l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="618" y="210" width="166" height="128" class="ln"/><text x="628" y="232" class="mono sm">04</text><path d="M632 252h138M632 268h106M632 284h122" class="ln faint"/><path d="M722 294l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="794" y="210" width="166" height="128" class="ln"/><text x="804" y="232" class="mono sm">05</text><path d="M808 252h138M808 268h106M808 284h122" class="ln faint"/><path d="M898 294l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="90" y="348" width="166" height="128" class="ln"/><text x="100" y="370" class="mono sm">06</text><path d="M104 390h138M104 406h106M104 422h122" class="ln faint"/><path d="M194 432l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="266" y="348" width="166" height="128" class="ln"/><text x="276" y="370" class="mono sm">07</text><path d="M280 390h138M280 406h106M280 422h122" class="ln faint"/><path d="M370 432l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur"/><rect x="442" y="348" width="166" height="128" class="ln"/><text x="452" y="370" class="mono sm">08</text><path d="M456 390h138M456 406h106M456 422h122" class="ln faint"/><path d="M546 432l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="618" y="348" width="166" height="128" class="ln"/><text x="628" y="370" class="mono sm">09</text><path d="M632 390h138M632 406h106M632 422h122" class="ln faint"/><path d="M722 432l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="794" y="348" width="166" height="128" class="ln"/><text x="804" y="370" class="mono sm">10</text><path d="M808 390h138M808 406h106M808 422h122" class="ln faint"/><path d="M898 432l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="90" y="486" width="166" height="128" class="ln"/><text x="100" y="508" class="mono sm">11</text><path d="M104 528h138M104 544h106M104 560h122" class="ln faint"/><path d="M194 570l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="266" y="486" width="166" height="128" class="ln"/><text x="276" y="508" class="mono sm">12</text><path d="M280 528h138M280 544h106M280 560h122" class="ln faint"/><path d="M370 570l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="442" y="486" width="166" height="128" class="ln"/><text x="452" y="508" class="mono sm">13</text><path d="M456 528h138M456 544h106M456 560h122" class="ln faint"/><path d="M546 570l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="618" y="486" width="166" height="128" class="ln"/><text x="628" y="508" class="mono sm">14</text><path d="M632 528h138M632 544h106M632 560h122" class="ln faint"/><path d="M722 570l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="794" y="486" width="166" height="128" class="ln"/><text x="804" y="508" class="mono sm">15</text><path d="M808 528h138M808 544h106M808 560h122" class="ln faint"/><path d="M898 570l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="90" y="624" width="166" height="128" class="ln"/><text x="100" y="646" class="mono sm">16</text><path d="M104 666h138M104 682h106M104 698h122" class="ln faint"/><path d="M194 708l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="266" y="624" width="166" height="128" class="ln"/><text x="276" y="646" class="mono sm">17</text><path d="M280 666h138M280 682h106M280 698h122" class="ln faint"/><path d="M370 708l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="442" y="624" width="166" height="128" class="ln"/><text x="452" y="646" class="mono sm">18</text><path d="M456 666h138M456 682h106M456 698h122" class="ln faint"/><path d="M546 708l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="618" y="624" width="166" height="128" class="ln"/><text x="628" y="646" class="mono sm">19</text><path d="M632 666h138M632 682h106M632 698h122" class="ln faint"/><path d="M722 708l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/><rect x="794" y="624" width="166" height="128" class="ln"/><text x="804" y="646" class="mono sm">20</text><path d="M808 666h138M808 682h106M808 698h122" class="ln faint"/><path d="M898 708l0 26 7 -7 5 11 5 -2 -5 -11 10 0z" class="cur ghost"/>
+              <text x="1040" y="180" class="mono">ÉCRAN 2 — LA CONSOLE</text>
+              <rect x="1040" y="200" width="480" height="568" class="ln thick"/>
+              <text x="1064" y="250" class="mono">MULTI WEB MANAGER</text><text x="1496" y="250" class="mono sm" text-anchor="end">20 INSTANCES</text>
+              <path d="M1040 276h480M1210 276v492" class="ln"/>
+              <circle cx="1102" cy="318" r="5" class="dot"/><text x="1118" y="324" class="mono sm">WEB 01</text><circle cx="1102" cy="356" r="5" class="dot"/><text x="1118" y="362" class="mono sm">WEB 02</text><circle cx="1102" cy="394" r="5" class="dot"/><text x="1118" y="400" class="mono sm">WEB 03</text><circle cx="1102" cy="432" r="5" class="dot"/><text x="1118" y="438" class="mono sm">WEB 04</text><circle cx="1102" cy="470" r="5" class="dot"/><text x="1118" y="476" class="mono sm">WEB 05</text><circle cx="1102" cy="508" r="5" class="dot"/><text x="1118" y="514" class="mono sm">WEB 06</text><circle cx="1102" cy="546" r="5" class="dot"/><text x="1118" y="552" class="mono sm">WEB 07</text><circle cx="1102" cy="584" r="5" class="dot"/><text x="1118" y="590" class="mono sm">WEB 08</text><text x="1118" y="636" class="mono sm">…</text>
+              <text x="1232" y="318" class="sans">Toutes les instances</text>
+              <text x="1232" y="352" class="mono sm">même site · même zoom</text>
+              <rect x="1232" y="378" width="18" height="18" class="ln"/><path d="M1236 387l4 4 7-8" class="ln"/>
+              <text x="1262" y="393" class="mono sm">répliquer la souris</text>
+              <path d="M1232 430h264" class="ln faint"/>
+              <text x="1232" y="470" class="sans">Instance choisie</text>
+              <text x="1232" y="504" class="mono sm">adresse · recharger · zoom</text>
+              <path d="M1232 540h264" class="ln faint"/>
+              <text x="1232" y="580" class="sans">Grille · écrans</text>
+              <text x="1232" y="614" class="mono sm">5 × 4 · automatique</text>
+              <text x="90" y="830" class="mono sm">Un clic dans la cellule 07 est reproduit au même endroit dans toutes les autres.</text>
+            </svg></figure>
+            <p class="desc">Navigateur multi-instance pour Windows&nbsp;: jusqu’à vingt pages web isolées en grille sur un écran, pilotées depuis une console d’administration sur un second écran.</p>
+            <ul class="points">
+              <li>Chaque cellule est un vrai navigateur isolé&nbsp;: cookies, stockage et session séparés.</li>
+              <li>Réplication de la souris&nbsp;: un clic dans une cellule est reproduit dans toutes les autres.</li>
+              <li>Au redémarrage, la même grille rouvre les mêmes pages.</li>
+            </ul>
+            <p class="links"><a href="https://github.com/kaitoooooooooooooooooooo/MultiWebManager" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="mobile" id="rivano">
+        <details>
+          <summary>
+            <span class="n">03</span><span class="name">Rivano</span>
+            <span class="meta"><span class="kind">Mobile</span><span class="stack">Flutter · Node.js · MongoDB</span><span class="date">09.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/rivano.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Rivano : liste des voitures, fiche d’un véhicule et panneau de filtres."></figure>
+            <p class="desc">Application de location de voitures de luxe&nbsp;: un catalogue servi par une API REST, affiché dans une application Flutter fidèle à sa maquette Figma. Projet de troisième année, mené en Scrum.</p>
+            <ul class="points">
+              <li>API Express et MongoDB documentée avec Swagger, testée avec Jest et Supertest.</li>
+              <li>État géré avec Riverpod&nbsp;; chaque écran traite le chargement, l’erreur et les données.</li>
+              <li>Recherche, filtres et fiche détaillée de chaque véhicule.</li>
+            </ul>
+            <p class="links"><a href="https://github.com/kaitoooooooooooooooooooo/car-rental" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="bureau" id="pdf-to-markdown">
+        <details>
+          <summary>
+            <span class="n">04</span><span class="name">PDF to Markdown</span>
+            <span class="meta"><span class="kind">Bureau</span><span class="stack">Python</span><span class="date">06.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/pdf-to-markdown.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="La fenêtre de PDF to Markdown après la conversion de trois fichiers."></figure>
+            <p class="desc">Petite application de bureau qui convertit d’un coup tous les PDF d’un dossier en fichiers Markdown, enregistrés à côté des originaux.</p>
+            <ul class="points">
+              <li>Un seul fichier .exe pour Windows, sans installation.</li>
+              <li>Extraction du texte avec pdfplumber, empaquetage avec PyInstaller.</li>
+            </ul>
+            <p class="links"><a href="https://github.com/kaitoooooooooooooooooooo/pdf-to-markdown-toolkit/releases/latest" target="_blank" rel="noopener">Télécharger</a><a href="https://github.com/kaitoooooooooooooooooooo/pdf-to-markdown-toolkit" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="web" id="nova-strike">
+        <details>
+          <summary>
+            <span class="n">05</span><span class="name">Nova Strike</span>
+            <span class="meta"><span class="kind">Web</span><span class="stack">TypeScript · Canvas</span><span class="date">06.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/nova-strike.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="L’écran d’accueil de Nova Strike, avec le score, les bonus et les améliorations."></figure>
+            <p class="desc">Jeu de tir spatial dans le navigateur, écrit en TypeScript et dessiné dans un canvas HTML.</p>
+            <ul class="points">
+              <li>Météores et aliens à abattre, bonus à ramasser.</li>
+              <li>Améliorations&nbsp;: vitesse, dégâts, vie supplémentaire.</li>
+              <li>Explosions animées image par image.</li>
+            </ul>
+            <p class="links"><a href="https://kaitoooooooooooooooooooo.github.io/Nova-Strike/" target="_blank" rel="noopener">Jouer</a><a href="https://github.com/kaitoooooooooooooooooooo/Nova-Strike" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="mobile" id="bookedo">
+        <details>
+          <summary>
+            <span class="n">06</span><span class="name">Bookedo</span>
+            <span class="meta"><span class="kind">Mobile</span><span class="stack">Flutter</span><span class="date">06.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/bookedo.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Bookedo : accueil, bibliothèque et fiche d’un livre."></figure>
+            <p class="desc">Application de bibliothèque personnelle en Flutter.</p>
+            <p class="links"><a href="https://github.com/kaitoooooooooooooooooooo/Bookedo" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="web" id="crypto-widget">
+        <details>
+          <summary>
+            <span class="n">07</span><span class="name">Crypto Widget</span>
+            <span class="meta"><span class="kind">Web</span><span class="stack">HTML · JavaScript</span><span class="date">04.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/crypto-widget.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Le widget Crypto : cours du bitcoin et graphique sur sept jours."></figure>
+            <p class="desc">Cours d’une cryptomonnaie en direct, avec un graphique sur un jour à un an, le choix de la devise et une actualisation automatique.</p>
+            <ul class="points">
+              <li>Un seul fichier HTML, à glisser dans une page de nouvel onglet.</li>
+              <li>Couleurs de hausse, de baisse et de fond personnalisables.</li>
+            </ul>
+            <p class="links"><a href="https://kaitoooooooooooooooooooo.github.io/cryptoTrackerWidget/" target="_blank" rel="noopener">Démo</a><a href="https://github.com/kaitoooooooooooooooooooo/cryptoTrackerWidget" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="mobile" id="neodex">
+        <details>
+          <summary>
+            <span class="n">08</span><span class="name">NeoDex</span>
+            <span class="meta"><span class="kind">Mobile</span><span class="stack">Flutter · Node.js · MongoDB</span><span class="date">03.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/neodex.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="NeoDex : liste des Pokémon, fiche de Bulbizarre et tirage au hasard."></figure>
+            <p class="desc">Application Pokémon complète&nbsp;: les 1025 Pokémon et leurs formes chromatiques, une recherche par nom, numéro ou type, et un Pokédex personnel.</p>
+            <ul class="points">
+              <li>Client Flutter en architecture par fonctionnalités, avec Riverpod et GoRouter.</li>
+              <li>API REST Express (MVC) documentée avec Swagger.</li>
+              <li>Tirage d’un Pokémon au hasard, animé avec Lottie.</li>
+            </ul>
+            <p class="links"><a href="https://github.com/kaitoooooooooooooooooooo/pokemon-app" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="web" id="3d-viewer">
+        <details>
+          <summary>
+            <span class="n">09</span><span class="name">3D Viewer</span>
+            <span class="meta"><span class="kind">Web</span><span class="stack">JavaScript · WebGL</span><span class="date">03.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/3d-viewer.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="3D Viewer : un modèle de voiture chargé, avec le panneau des réglages."></figure>
+            <p class="desc">Visionneuse 3D légère qui tourne entièrement dans le navigateur, pensée comme un widget pour une page de nouvel onglet.</p>
+            <ul class="points">
+              <li>Glisser-déposer d’un modèle, rotation automatique, contrôle à la souris ou au doigt.</li>
+              <li>Matériaux verre, filaire ou plein&nbsp;; lumière réglable en direct.</li>
+              <li>Modèles gardés dans le navigateur (IndexedDB), sans serveur.</li>
+            </ul>
+            <p class="links"><a href="https://kaitoooooooooooooooooooo.github.io/3dview.github.io/" target="_blank" rel="noopener">Démo</a><a href="https://github.com/kaitoooooooooooooooooooo/3dview.github.io" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+
+      <li data-cat="web" id="countdown-widget">
+        <details>
+          <summary>
+            <span class="n">10</span><span class="name">Countdown Widget</span>
+            <span class="meta"><span class="kind">Web</span><span class="stack">HTML · CSS · JavaScript</span><span class="date">03.2026</span></span><span class="toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="body">
+            <figure class="preview"><img src="img/countdown-widget.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Le widget Countdown, prêt à compter les jours jusqu’à un événement."></figure>
+            <p class="desc">Compte à rebours personnalisable&nbsp;: nom de l’événement, date cible, couleurs, thème, taille et unités affichées.</p>
+            <p class="links"><a href="https://kaitoooooooooooooooooooo.github.io/CountdownWidget.github.io/" target="_blank" rel="noopener">Démo</a><a href="https://github.com/kaitoooooooooooooooooooo/CountdownWidget.github.io" target="_blank" rel="noopener">Code</a></p>
+          </div>
+        </details>
+      </li>
+    </ol>
+  </section>
+
+  <section class="about wrap" id="a-propos" aria-labelledby="titre-propos">
+    <h2 class="label" id="titre-propos">À propos</h2>
+    <div class="about-body">
+      <p class="statement">Je développe des applications complètes&nbsp;: une API documentée d’un côté, une interface soignée de l’autre. Ce site rassemble mes projets, scolaires et personnels.</p>
+      <dl class="tools">
+        <div><dt>Langages</dt><dd>TypeScript<br>JavaScript<br>Dart<br>Python<br>PHP</dd></div>
+        <div><dt>Interfaces</dt><dd>Flutter<br>Electron<br>HTML et CSS<br>Canvas, WebGL</dd></div>
+        <div><dt>Serveur et données</dt><dd>Node.js, Express<br>MongoDB<br>SQLite<br>Swagger</dd></div>
+        <div><dt>Méthode</dt><dd>Git<br>Jest<br>Figma<br>Scrum</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="contact" aria-labelledby="titre-contact">
+    <h2 class="label" id="titre-contact">Contact</h2>
+    <a class="mail" href="mailto:contact@kaito-lab.ch">contact@kaito-lab.ch</a>
+    <p class="links"><a href="https://github.com/kaitoooooooooooooooooooo" target="_blank" rel="noopener">GitHub</a></p>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <span>© 2026 Tom Mehl</span>
+  <span>kaito-lab.ch</span>
+  <a href="#">Haut de page</a>
+</footer>
+</body>
+</html>
